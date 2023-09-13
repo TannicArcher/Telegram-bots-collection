@@ -1,0 +1,4 @@
+environs
+aiosqlite
+requests
+aiogram
